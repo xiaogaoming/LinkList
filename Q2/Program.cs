@@ -1,0 +1,21 @@
+﻿using LinkList;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Q2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+
+        public static SingleLinkNode<T> InsertAtFirst(SingleLinkNode<T> first, SingleLinkNode<T> target)
+        {
+
+        }
+    }
+}
