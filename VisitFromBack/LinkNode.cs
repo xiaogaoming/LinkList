@@ -64,17 +64,26 @@ namespace VisitFromBack
         {
             if (linkList != null && node != null)
             {
-                MyLinkNode p = linkList;
-
-                while (p != null && p.Next != node)
+                // 如果待删除节点是第一个节点，并且链表不带头节点
+                // 我们要做特殊处理
+                if (linkList == node)
                 {
-                    p = p.Next;
+                    linkList = linkList.Next;
                 }
-
-                ///说明我们找到了目标节点
-                if (p.Next == node)
+                else
                 {
-                    p.Next = p.Next.Next;
+                    MyLinkNode p = linkList;
+
+                    while (p != null && p.Next != node)
+                    {
+                        p = p.Next;
+                    }
+
+                    ///说明我们找到了目标节点
+                    if (p.Next == node)
+                    {
+                        p.Next = p.Next.Next;
+                    }
                 }
             }
         }
