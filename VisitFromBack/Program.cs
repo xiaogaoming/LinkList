@@ -28,12 +28,13 @@ namespace VisitFromBack
             // node1.VisitFromBack();
             // MyLinkNode.VisitFromBackNByN(node1);
 
-            //MyLinkNode.DeleteTarget(node1, node3);
+            //var node = MyLinkNode.DeleteTarget(node1, node3);
+            // node.Visit();
 
             node1.Visit();
 
-            MyLinkNode.DeleteTargetByValue(node1, 2);
-            node1.Visit();
+            var node = MyLinkNode.DeleteTargetByValue(node1, 1);
+            node.Visit();
 
             MyLinkNode.DeleteTargetByValue(node1, 4);
             node1.Visit();

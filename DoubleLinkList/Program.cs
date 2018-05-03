@@ -21,9 +21,9 @@ namespace DoubleLinkList
             DoubleLinkList node7 = new DoubleLinkList(7);
             node1.InsertAtEnd(node7);
 
-            node1.Delete(node4);
+            DoubleLinkList node = node1.Delete(node4);
 
-            node1.Delete(node7);
+            node.Delete(node7);
         }
     }
 }

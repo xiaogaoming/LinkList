@@ -36,7 +36,7 @@ namespace DoubleLinkList
             }
         }
 
-        public void Delete(DoubleLinkList node)
+        public DoubleLinkList Delete(DoubleLinkList node)
         {
             if (node != null)
             {
@@ -51,24 +51,40 @@ namespace DoubleLinkList
 
                 if (p == node)
                 {
-                    p.Last.Next = p.Next;
-
-                    if (p.Next != null)
+                    // 待删除的节点是第一个节点
+                    // 需要特别处理
+                    if (p == this)
                     {
-                        p.Next.Last = p.Last;
-                    }
+                        // 这个时候表明该算法的签名有问题哈，我们需要把它改成有返回值的
+                        // 否则我们不能删除自己
 
-                    //if (p.Next != null)
-                    //{
-                    //    p.Last.Next = p.Next;
-                    //    p.Next.Last = p.Last;
-                    //}
-                    //else
-                    //{
-                    //    p.Last.Next = p.Next;
-                    //}
+                        p = p.Next;
+                        p.Last = null;
+
+                        return p;
+                    }
+                    else
+                    {
+                        p.Last.Next = p.Next;
+
+                        if (p.Next != null)
+                        {
+                            p.Next.Last = p.Last;
+                        }
+
+                        //if (p.Next != null)
+                        //{
+                        //    p.Last.Next = p.Next;
+                        //    p.Next.Last = p.Last;
+                        //}
+                        //else
+                        //{
+                        //    p.Last.Next = p.Next;
+                        //}
+                    }
                 }
             }
+            return this;
         }
     }
 }

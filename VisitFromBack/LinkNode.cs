@@ -60,7 +60,7 @@ namespace VisitFromBack
         /// </summary>
         /// <param name="linkList"></param>
         /// <param name="node"></param>
-        public static void DeleteTarget(MyLinkNode linkList, MyLinkNode node)
+        public static MyLinkNode DeleteTarget(MyLinkNode linkList, MyLinkNode node)
         {
             if (linkList != null && node != null)
             {
@@ -86,6 +86,8 @@ namespace VisitFromBack
                     }
                 }
             }
+
+            return linkList;
         }
 
         /// <summary>
@@ -93,11 +95,16 @@ namespace VisitFromBack
         /// </summary>
         /// <param name="linkList"></param>
         /// <param name="target"></param>
-        public static void DeleteTargetByValue(MyLinkNode linkList, int target)
+        public static MyLinkNode DeleteTargetByValue(MyLinkNode linkList, int target)
         {
             if (linkList != null)
             {
                 MyLinkNode p = linkList;
+
+                if (linkList.Data == target)
+                {
+                    linkList = linkList.Next;
+                }
 
                 while (p.Next != null)
                 {
@@ -111,6 +118,8 @@ namespace VisitFromBack
                     }
                 }
             }
+
+            return linkList;
         }
 
         public void Visit()
